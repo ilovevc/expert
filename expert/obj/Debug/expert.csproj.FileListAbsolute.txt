@@ -1,0 +1,14 @@
+C:\Users\redho\source\repos\expert\expert\bin\Debug\data\expert.mdf
+C:\Users\redho\source\repos\expert\expert\bin\Debug\data\expert_log.ldf
+C:\Users\redho\source\repos\expert\expert\bin\Debug\expert.exe.config
+C:\Users\redho\source\repos\expert\expert\bin\Debug\expert.exe
+C:\Users\redho\source\repos\expert\expert\bin\Debug\expert.pdb
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.csprojResolveAssemblyReference.cache
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.Form1.resources
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.Properties.Resources.resources
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.csproj.GenerateResource.Cache
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.csproj.CoreCompileInputs.cache
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.exe
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.pdb
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.quyuform.resources
+C:\Users\redho\source\repos\expert\expert\obj\Debug\expert.zjlrForm.resources
