@@ -374,7 +374,6 @@
             this.Controls.Add(this.textBoxbh);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "zjlrForm";
             this.ShowIcon = false;
             this.Text = "专家信息编辑";
