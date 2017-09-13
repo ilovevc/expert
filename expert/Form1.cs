@@ -49,7 +49,7 @@ namespace expert
                 fzjlr = new zjlrForm();
                 fzjlr.MdiParent = this;
                 fzjlr.Show();
-                fzjlr.loaddata("100001");
+                //fzjlr.loaddata("100001");
             }
         }
         public void showmsg(string msg)
