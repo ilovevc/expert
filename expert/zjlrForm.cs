@@ -61,6 +61,11 @@ namespace expert
                    textBoxbh.Text= textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text = textBoxzw.Text = textBoxsj.Text = textBoxdh.Text = textBoxhy.Text = textBox1zy.Text = textBoxlx.Text = textBoxbz.Text = "";
                     f1.showmsg("更新专家信息成功");
                 }
+                else
+                {
+                    f1.showmsg("更新专家信息失败");
+                    MessageBox.Show("更新专家信息失败，请保证专家信息存在。");
+                }
             }
             else
             {

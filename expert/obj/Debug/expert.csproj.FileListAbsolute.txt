@@ -26,3 +26,4 @@ C:\Users\redho\Desktop\expert\expert\obj\Debug\expert.csproj.GenerateResource.Ca
 C:\Users\redho\Desktop\expert\expert\obj\Debug\expert.csproj.CoreCompileInputs.cache
 C:\Users\redho\Desktop\expert\expert\obj\Debug\expert.exe
 C:\Users\redho\Desktop\expert\expert\obj\Debug\expert.pdb
+C:\Users\redho\Desktop\expert\expert\obj\Debug\expert.zjlistForm.resources

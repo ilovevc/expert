@@ -13,7 +13,7 @@ namespace expert
     {
         public static SqlConnection getcon()
         {
-            return (new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ToString()));
+            return (new SqlConnection(ConfigurationManager.ConnectionStrings["expert.Properties.Settings.constr"].ToString()));
         }
     }
 }
