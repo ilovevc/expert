@@ -44,12 +44,39 @@ namespace expert
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(insertdata()>0)
+            Form1 f1 = (Form1)this.ParentForm;
+
+
+            if (textBoxxm.Text.Trim()==string.Empty)
             {
-                textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text=textBoxzw.Text=textBoxsj.Text=textBoxdh.Text=textBoxhy.Text=textBox1zy.Text=textBoxlx.Text=textBoxbz.Text = "";
-                Form1 f1 = (Form1)this.ParentForm;
-                f1.showmsg("新增专家信息成功");
+                f1.showmsg("姓名不能为空");
+                MessageBox.Show("姓名不能为空");
+                return;
             }
+
+            if(textBoxbh.Text.Trim()!=string.Empty)
+            {
+                if(updatedatedata(textBoxbh.Text)>0)
+                {
+                   textBoxbh.Text= textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text = textBoxzw.Text = textBoxsj.Text = textBoxdh.Text = textBoxhy.Text = textBox1zy.Text = textBoxlx.Text = textBoxbz.Text = "";
+                    f1.showmsg("更新专家信息成功");
+                }
+                else
+                {
+                    f1.showmsg("更新专家信息失败");
+                    MessageBox.Show("更新专家信息失败，请保证专家信息存在。");
+                }
+            }
+            else
+            {
+                if (insertdata()>0)
+                {
+                    textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text=textBoxzw.Text=textBoxsj.Text=textBoxdh.Text=textBoxhy.Text=textBox1zy.Text=textBoxlx.Text=textBoxbz.Text = "";
+                
+                    f1.showmsg("新增专家信息成功");
+                }
+            }
+            
         }
 
         private int insertdata()
@@ -106,6 +133,33 @@ namespace expert
             }
 
             return false;
+        }
+        public int updatedatedata(string id)
+        {
+
+            string sql = "update Tzhuanjia set [xingming]=@xingming,[xingbie]=@xingbie,[nianling]=@nianling,[shenfenzheng]=@shenfenzheng,[danwei]=@danwei,[zhicheng]=@zhicheng,[zhiwu]=@zhiwu,[shouji]=@shouji,[dianhua]=@dianhua,[hangye]=@hangye,[zhuanye]=@zhuanye,[leixing]=@leixing,[quyu]=@quyu,[beizhu]=@beizhu where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            cmd.Parameters.AddWithValue("xingming", textBoxxm.Text);
+            cmd.Parameters.AddWithValue("xingbie", comboBoxxb.Text);
+            cmd.Parameters.AddWithValue("nianling", Convert.ToInt32(textBoxnl.Text));
+            cmd.Parameters.AddWithValue("shenfenzheng", textBoxsfz.Text);
+            cmd.Parameters.AddWithValue("danwei", textBoxdw.Text);
+            cmd.Parameters.AddWithValue("zhicheng", textBoxzc.Text);
+            cmd.Parameters.AddWithValue("zhiwu", textBoxzw.Text);
+            cmd.Parameters.AddWithValue("shouji", textBoxsj.Text);
+            cmd.Parameters.AddWithValue("dianhua", textBoxdh.Text);
+            cmd.Parameters.AddWithValue("hangye", textBoxhy.Text);
+            cmd.Parameters.AddWithValue("zhuanye", textBox1zy.Text);
+            cmd.Parameters.AddWithValue("leixing", textBoxlx.Text);
+            cmd.Parameters.AddWithValue("quyu", comboBoxqy.Text);
+            cmd.Parameters.AddWithValue("beizhu", textBoxbz.Text);
+            cmd.Parameters.AddWithValue("id", textBoxbh.Text);
+            cmd.Connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
+
+            return i;
         }
     }
 }

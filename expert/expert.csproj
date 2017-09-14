@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="expertDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>expertDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +81,12 @@
       <DependentUpon>quyuform.cs</DependentUpon>
     </Compile>
     <Compile Include="sub.cs" />
+    <Compile Include="zjlistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zjlistForm.Designer.cs">
+      <DependentUpon>zjlistForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="zjlrForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,9 +108,23 @@
     <EmbeddedResource Include="quyuform.resx">
       <DependentUpon>quyuform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="zjlistForm.resx">
+      <DependentUpon>zjlistForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="zjlrForm.resx">
       <DependentUpon>zjlrForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="expertDataSet.xsc">
+      <DependentUpon>expertDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="expertDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>expertDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="expertDataSet.xss">
+      <DependentUpon>expertDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

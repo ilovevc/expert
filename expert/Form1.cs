@@ -14,6 +14,7 @@ namespace expert
     {
         quyuform fquyu=null;
         zjlrForm fzjlr = null;
+        zjlistForm fzjlist = null;
         public Form1()
         {
             InitializeComponent();
@@ -49,12 +50,48 @@ namespace expert
                 fzjlr = new zjlrForm();
                 fzjlr.MdiParent = this;
                 fzjlr.Show();
-               // fzjlr.loaddata("100001");
+                //fzjlr.loaddata("100001");
             }
         }
         public void showmsg(string msg)
         {
             toolmsg.Text = msg;
+        }
+
+        private void 专家列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fzjlist != null && !fzjlist.IsDisposed)
+            {
+                fzjlist.WindowState = FormWindowState.Normal;
+                fzjlist.Focus();
+            }
+            else
+            {
+                fzjlist = new zjlistForm();
+                fzjlist.MdiParent = this;
+                fzjlist.Show();
+            }
+        }
+
+        public zjlrForm zjlrform
+        {
+            get
+            {
+                if (fzjlr != null && !fzjlr.IsDisposed)
+                {
+                    fzjlr.WindowState = FormWindowState.Normal;
+                    fzjlr.Focus();
+
+                }
+                else
+                {
+                    fzjlr = new zjlrForm();
+                    fzjlr.MdiParent = this;
+                    fzjlr.Show();
+                    //fzjlr.loaddata("100001");
+                }
+                return fzjlr;
+            }
         }
     }
 }
