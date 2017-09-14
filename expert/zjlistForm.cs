@@ -48,7 +48,7 @@ namespace expert
                 return;
             dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             tzhuanjiaTableAdapter.Update(expertDataSet.Tzhuanjia);
-            
+            //test
         }
     }
 }
