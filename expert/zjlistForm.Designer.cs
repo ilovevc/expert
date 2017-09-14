@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(zjlistForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonref = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtondel = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bianhaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             this.tzhuanjiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertDataSet = new expert.expertDataSet();
             this.tzhuanjiaTableAdapter = new expert.expertDataSetTableAdapters.TzhuanjiaTableAdapter();
-            this.toolStripButtondel = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tzhuanjiaBindingSource)).BeginInit();
@@ -79,6 +79,16 @@
             this.toolStripButtonref.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonref.Text = "刷新";
             this.toolStripButtonref.Click += new System.EventHandler(this.toolStripButtonref_Click);
+            // 
+            // toolStripButtondel
+            // 
+            this.toolStripButtondel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtondel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtondel.Image")));
+            this.toolStripButtondel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtondel.Name = "toolStripButtondel";
+            this.toolStripButtondel.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtondel.Text = "删除";
+            this.toolStripButtondel.Click += new System.EventHandler(this.toolStripButtondel_Click);
             // 
             // dataGridView1
             // 
@@ -232,16 +242,6 @@
             // tzhuanjiaTableAdapter
             // 
             this.tzhuanjiaTableAdapter.ClearBeforeFill = true;
-            // 
-            // toolStripButtondel
-            // 
-            this.toolStripButtondel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtondel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtondel.Image")));
-            this.toolStripButtondel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtondel.Name = "toolStripButtondel";
-            this.toolStripButtondel.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtondel.Text = "删除";
-            this.toolStripButtondel.Click += new System.EventHandler(this.toolStripButtondel_Click);
             // 
             // zjlistForm
             // 
