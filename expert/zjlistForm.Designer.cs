@@ -52,6 +52,7 @@
             this.tzhuanjiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertDataSet = new expert.expertDataSet();
             this.tzhuanjiaTableAdapter = new expert.expertDataSetTableAdapters.TzhuanjiaTableAdapter();
+            this.toolStripButtonfind = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tzhuanjiaBindingSource)).BeginInit();
@@ -63,7 +64,8 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonref,
-            this.toolStripButtondel});
+            this.toolStripButtondel,
+            this.toolStripButtonfind});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(895, 25);
@@ -243,6 +245,15 @@
             // 
             this.tzhuanjiaTableAdapter.ClearBeforeFill = true;
             // 
+            // toolStripButtonfind
+            // 
+            this.toolStripButtonfind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonfind.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonfind.Image")));
+            this.toolStripButtonfind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonfind.Name = "toolStripButtonfind";
+            this.toolStripButtonfind.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonfind.Text = "toolStripButton1";
+            // 
             // zjlistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -287,5 +298,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn leixingDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quyuDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton toolStripButtondel;
+        private System.Windows.Forms.ToolStripButton toolStripButtonfind;
     }
 }
