@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="czForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="czForm.Designer.cs">
+      <DependentUpon>czForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="expertDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +99,9 @@
     <Compile Include="zjlrForm.Designer.cs">
       <DependentUpon>zjlrForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="czForm.resx">
+      <DependentUpon>czForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
