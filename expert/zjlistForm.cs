@@ -50,5 +50,14 @@ namespace expert
             tzhuanjiaTableAdapter.Update(expertDataSet.Tzhuanjia);
             //test
         }
+
+        private void toolStripButtonfind_Click(object sender, EventArgs e)
+        {
+            czForm formcz = new czForm();
+            if(formcz.ShowDialog ()==DialogResult.OK)
+            {
+                MessageBox.Show("ok");
+            }
+        }
     }
 }

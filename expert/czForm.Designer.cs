@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.buttonok = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // buttonok
+            // 
+            this.buttonok.Location = new System.Drawing.Point(662, 441);
+            this.buttonok.Name = "buttonok";
+            this.buttonok.Size = new System.Drawing.Size(127, 42);
+            this.buttonok.TabIndex = 0;
+            this.buttonok.Text = "button1";
+            this.buttonok.UseVisualStyleBackColor = true;
+            this.buttonok.Click += new System.EventHandler(this.buttonok_Click);
             // 
             // czForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 574);
+            this.ClientSize = new System.Drawing.Size(996, 510);
+            this.Controls.Add(this.buttonok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -45,5 +57,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonok;
     }
 }

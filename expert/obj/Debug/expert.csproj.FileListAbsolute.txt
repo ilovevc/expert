@@ -43,3 +43,4 @@ C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.csproj.GenerateRe
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.csproj.CoreCompileInputs.cache
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.exe
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.pdb
+C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.czForm.resources

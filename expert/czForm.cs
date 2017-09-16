@@ -16,5 +16,10 @@ namespace expert
         {
             InitializeComponent();
         }
+
+        private void buttonok_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

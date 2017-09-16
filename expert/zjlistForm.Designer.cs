@@ -33,6 +33,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonref = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtondel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonfind = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bianhaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +53,6 @@
             this.tzhuanjiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertDataSet = new expert.expertDataSet();
             this.tzhuanjiaTableAdapter = new expert.expertDataSetTableAdapters.TzhuanjiaTableAdapter();
-            this.toolStripButtonfind = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tzhuanjiaBindingSource)).BeginInit();
@@ -62,13 +62,15 @@
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonref,
             this.toolStripButtondel,
             this.toolStripButtonfind});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(895, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(1790, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -78,7 +80,7 @@
             this.toolStripButtonref.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonref.Image")));
             this.toolStripButtonref.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonref.Name = "toolStripButtonref";
-            this.toolStripButtonref.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonref.Size = new System.Drawing.Size(36, 36);
             this.toolStripButtonref.Text = "刷新";
             this.toolStripButtonref.Click += new System.EventHandler(this.toolStripButtonref_Click);
             // 
@@ -88,9 +90,19 @@
             this.toolStripButtondel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtondel.Image")));
             this.toolStripButtondel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtondel.Name = "toolStripButtondel";
-            this.toolStripButtondel.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtondel.Size = new System.Drawing.Size(36, 36);
             this.toolStripButtondel.Text = "删除";
             this.toolStripButtondel.Click += new System.EventHandler(this.toolStripButtondel_Click);
+            // 
+            // toolStripButtonfind
+            // 
+            this.toolStripButtonfind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonfind.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonfind.Image")));
+            this.toolStripButtonfind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonfind.Name = "toolStripButtonfind";
+            this.toolStripButtonfind.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButtonfind.Text = "toolStripButton1";
+            this.toolStripButtonfind.Click += new System.EventHandler(this.toolStripButtonfind_Click);
             // 
             // dataGridView1
             // 
@@ -115,13 +127,14 @@
             this.quyuDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tzhuanjiaBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 39);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(895, 497);
+            this.dataGridView1.Size = new System.Drawing.Size(1790, 1005);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -245,22 +258,14 @@
             // 
             this.tzhuanjiaTableAdapter.ClearBeforeFill = true;
             // 
-            // toolStripButtonfind
-            // 
-            this.toolStripButtonfind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonfind.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonfind.Image")));
-            this.toolStripButtonfind.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonfind.Name = "toolStripButtonfind";
-            this.toolStripButtonfind.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonfind.Text = "toolStripButton1";
-            // 
             // zjlistForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 522);
+            this.ClientSize = new System.Drawing.Size(1790, 1044);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "zjlistForm";
             this.Text = "专家列表";
             this.Load += new System.EventHandler(this.zjlistForm_Load);
