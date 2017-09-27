@@ -44,3 +44,5 @@ C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.csproj.CoreCompil
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.exe
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.pdb
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.czForm.resources
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.czForm.resources
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.xmForm2.resources

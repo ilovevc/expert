@@ -87,6 +87,12 @@
       <DependentUpon>quyuform.cs</DependentUpon>
     </Compile>
     <Compile Include="sub.cs" />
+    <Compile Include="xmForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xmForm2.Designer.cs">
+      <DependentUpon>xmForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="zjlistForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="quyuform.resx">
       <DependentUpon>quyuform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xmForm2.resx">
+      <DependentUpon>xmForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zjlistForm.resx">
       <DependentUpon>zjlistForm.cs</DependentUpon>

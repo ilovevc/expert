@@ -33,9 +33,10 @@
             this.编辑EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.区域信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.专家信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.专家列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolmsg = new System.Windows.Forms.ToolStripStatusLabel();
-            this.专家列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.项目信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,8 @@
             this.编辑EToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.区域信息录入ToolStripMenuItem,
             this.专家信息录入ToolStripMenuItem,
-            this.专家列表ToolStripMenuItem});
+            this.专家列表ToolStripMenuItem,
+            this.项目信息录入ToolStripMenuItem});
             this.编辑EToolStripMenuItem.Name = "编辑EToolStripMenuItem";
             this.编辑EToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
             this.编辑EToolStripMenuItem.Text = "编辑(&E)";
@@ -73,7 +75,7 @@
             // 
             this.区域信息录入ToolStripMenuItem.Name = "区域信息录入ToolStripMenuItem";
             this.区域信息录入ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.区域信息录入ToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.区域信息录入ToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.区域信息录入ToolStripMenuItem.Text = "区域信息管理";
             this.区域信息录入ToolStripMenuItem.Click += new System.EventHandler(this.区域信息录入ToolStripMenuItem_Click);
             // 
@@ -82,9 +84,18 @@
             this.专家信息录入ToolStripMenuItem.Name = "专家信息录入ToolStripMenuItem";
             this.专家信息录入ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
-            this.专家信息录入ToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.专家信息录入ToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.专家信息录入ToolStripMenuItem.Text = "专家信息录入";
             this.专家信息录入ToolStripMenuItem.Click += new System.EventHandler(this.专家信息录入ToolStripMenuItem_Click);
+            // 
+            // 专家列表ToolStripMenuItem
+            // 
+            this.专家列表ToolStripMenuItem.Name = "专家列表ToolStripMenuItem";
+            this.专家列表ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.L)));
+            this.专家列表ToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.专家列表ToolStripMenuItem.Text = "专家列表";
+            this.专家列表ToolStripMenuItem.Click += new System.EventHandler(this.专家列表ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -102,14 +113,14 @@
             this.toolmsg.Size = new System.Drawing.Size(32, 17);
             this.toolmsg.Text = "就绪";
             // 
-            // 专家列表ToolStripMenuItem
+            // 项目信息录入ToolStripMenuItem
             // 
-            this.专家列表ToolStripMenuItem.Name = "专家列表ToolStripMenuItem";
-            this.专家列表ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.L)));
-            this.专家列表ToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.专家列表ToolStripMenuItem.Text = "专家列表";
-            this.专家列表ToolStripMenuItem.Click += new System.EventHandler(this.专家列表ToolStripMenuItem_Click);
+            this.项目信息录入ToolStripMenuItem.Name = "项目信息录入ToolStripMenuItem";
+            this.项目信息录入ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.X)));
+            this.项目信息录入ToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.项目信息录入ToolStripMenuItem.Text = "项目信息录入";
+            this.项目信息录入ToolStripMenuItem.Click += new System.EventHandler(this.项目信息录入ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -143,6 +154,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolmsg;
         private System.Windows.Forms.ToolStripMenuItem 专家列表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 项目信息录入ToolStripMenuItem;
     }
 }
 

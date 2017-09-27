@@ -15,6 +15,7 @@ namespace expert
         quyuform fquyu=null;
         zjlrForm fzjlr = null;
         zjlistForm fzjlist = null;
+        xmForm2 fxm = null;
         public Form1()
         {
             InitializeComponent();
@@ -92,6 +93,40 @@ namespace expert
                 }
                 return fzjlr;
             }
+        }
+        public xmForm2 xmform
+        {
+            get
+            {
+                if (fxm != null && !fxm.IsDisposed)
+                {
+                    fxm.WindowState = FormWindowState.Normal;
+                    fxm.Focus();
+                }
+                else
+                {
+                    fxm = new xmForm2();
+                    fxm.MdiParent = this;
+                    fxm.Show();
+                }
+                return fxm;
+            }
+        }
+
+        private void 项目信息录入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fxm != null && !fxm.IsDisposed)
+            {
+                fxm.WindowState = FormWindowState.Normal;
+                fxm.Focus();
+            }
+            else
+            {
+                fxm = new xmForm2();
+                fxm.MdiParent = this;
+                fxm.Show();
+            }
+           // fxm.loaddata("100001");
         }
     }
 }
