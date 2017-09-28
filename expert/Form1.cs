@@ -16,6 +16,7 @@ namespace expert
         zjlrForm fzjlr = null;
         zjlistForm fzjlist = null;
         xmForm2 fxm = null;
+        xmlsForm fxmls = null;
         public Form1()
         {
             InitializeComponent();
@@ -127,6 +128,30 @@ namespace expert
                 fxm.Show();
             }
            // fxm.loaddata("100001");
+        }
+
+        private void 项目列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fxmls != null && !fxmls.IsDisposed)
+            {
+                fxmls.WindowState = FormWindowState.Normal;
+                fxmls.Focus();
+            }
+            else
+            {
+                fxmls = new xmlsForm();
+                fxmls.MdiParent = this;
+                fxmls.Show();
+            }
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zjselForm zjsel = new zjselForm();
+            if(zjsel.ShowDialog()==DialogResult.OK)
+            {
+                MessageBox.Show(zjsel.zjid);
+            }
         }
     }
 }

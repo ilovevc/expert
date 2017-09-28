@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>expertDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="expertDataSetxiangmu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>expertDataSetxiangmu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +98,12 @@
     <Compile Include="xmForm2.Designer.cs">
       <DependentUpon>xmForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="xmlsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xmlsForm.Designer.cs">
+      <DependentUpon>xmlsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="zjlistForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +115,12 @@
     </Compile>
     <Compile Include="zjlrForm.Designer.cs">
       <DependentUpon>zjlrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="zjselForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zjselForm.Designer.cs">
+      <DependentUpon>zjselForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="czForm.resx">
       <DependentUpon>czForm.cs</DependentUpon>
@@ -126,11 +143,17 @@
     <EmbeddedResource Include="xmForm2.resx">
       <DependentUpon>xmForm2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="xmlsForm.resx">
+      <DependentUpon>xmlsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="zjlistForm.resx">
       <DependentUpon>zjlistForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="zjlrForm.resx">
       <DependentUpon>zjlrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zjselForm.resx">
+      <DependentUpon>zjselForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="expertDataSet.xsc">
       <DependentUpon>expertDataSet.xsd</DependentUpon>
@@ -142,6 +165,17 @@
     </None>
     <None Include="expertDataSet.xss">
       <DependentUpon>expertDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="expertDataSetxiangmu.xsc">
+      <DependentUpon>expertDataSetxiangmu.xsd</DependentUpon>
+    </None>
+    <None Include="expertDataSetxiangmu.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>expertDataSetxiangmu.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="expertDataSetxiangmu.xss">
+      <DependentUpon>expertDataSetxiangmu.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
