@@ -153,5 +153,7 @@ namespace expert
                 MessageBox.Show(zjsel.zjid);
             }
         }
+
+       
     }
 }

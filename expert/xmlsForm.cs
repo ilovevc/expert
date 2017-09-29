@@ -40,5 +40,23 @@ namespace expert
                 txiangmuTableAdapter.Update(expertDataSetxiangmu.Txiangmu);
             }
         }
+
+        private void 添加排除专家ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count <= 0)
+                return;
+
+            pczjForm pczj = new pczjForm(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            pczj.ShowDialog();
+        }
+
+        private void 编辑项目ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count <= 0)
+                return;
+            Form1 f = (Form1)this.MdiParent;
+            f.xmform.loaddata(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace expert
                 insertdata();
             }
             mctextBox.Text = bhtextBox.Text = ddtextBox.Text = jgtextBox.Text = lxtextBox.Text = bztextBox.Text = "";
-            zjlistView.Items.Clear();
+            
             rqdateTimePicker.Value = DateTime.Now;
             sjdateTimePicker.Value = DateTime.Now;
 
@@ -139,7 +139,7 @@ namespace expert
                 ListViewItem item = new ListViewItem();
                 item.Text = id;
                 item.SubItems.Add(DateTime.Now.ToString("yyyy/MM/dd hh:mm"));
-                zjlistView.Items.Add(item);
+                //zjlistView.Items.Add(item);
                
             }
             cmd.Connection.Close();
@@ -147,7 +147,7 @@ namespace expert
              * 建立专家选择窗口 ok
              * 建立项目列表窗口 ok
              * 数据库建立项目排除专家表 ok
-             * 建立项目排除专家窗口
+             * 建立项目排除专家窗口 ok
              * 建立抽取专家窗口，将专家抽取操作功能移动到这个窗口
              */
         }

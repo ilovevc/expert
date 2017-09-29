@@ -49,3 +49,4 @@ C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.xmForm2.resources
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.xmForm2.resources
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.xmlsForm.resources
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.zjselForm.resources
+C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.pczjForm.resources

@@ -30,17 +30,18 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.编辑EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.区域信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.专家信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.专家列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.项目信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.项目列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolmsg = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.项目列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,13 @@
             this.文件FToolStripMenuItem.Size = new System.Drawing.Size(103, 38);
             this.文件FToolStripMenuItem.Text = "文件(&F)";
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
+            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // 编辑EToolStripMenuItem
             // 
             this.编辑EToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -75,7 +83,8 @@
             this.专家列表ToolStripMenuItem,
             this.toolStripSeparator2,
             this.项目信息录入ToolStripMenuItem,
-            this.项目列表ToolStripMenuItem});
+            this.项目列表ToolStripMenuItem,
+            this.toolStripSeparator3});
             this.编辑EToolStripMenuItem.Name = "编辑EToolStripMenuItem";
             this.编辑EToolStripMenuItem.Size = new System.Drawing.Size(103, 38);
             this.编辑EToolStripMenuItem.Text = "编辑(&E)";
@@ -87,6 +96,11 @@
             this.区域信息录入ToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
             this.区域信息录入ToolStripMenuItem.Text = "区域信息管理";
             this.区域信息录入ToolStripMenuItem.Click += new System.EventHandler(this.区域信息录入ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(410, 6);
             // 
             // 专家信息录入ToolStripMenuItem
             // 
@@ -106,6 +120,11 @@
             this.专家列表ToolStripMenuItem.Text = "专家列表";
             this.专家列表ToolStripMenuItem.Click += new System.EventHandler(this.专家列表ToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(410, 6);
+            // 
             // 项目信息录入ToolStripMenuItem
             // 
             this.项目信息录入ToolStripMenuItem.Name = "项目信息录入ToolStripMenuItem";
@@ -114,6 +133,15 @@
             this.项目信息录入ToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
             this.项目信息录入ToolStripMenuItem.Text = "项目信息录入";
             this.项目信息录入ToolStripMenuItem.Click += new System.EventHandler(this.项目信息录入ToolStripMenuItem_Click);
+            // 
+            // 项目列表ToolStripMenuItem
+            // 
+            this.项目列表ToolStripMenuItem.Name = "项目列表ToolStripMenuItem";
+            this.项目列表ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.M)));
+            this.项目列表ToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
+            this.项目列表ToolStripMenuItem.Text = "项目列表";
+            this.项目列表ToolStripMenuItem.Click += new System.EventHandler(this.项目列表ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -133,31 +161,10 @@
             this.toolmsg.Size = new System.Drawing.Size(62, 31);
             this.toolmsg.Text = "就绪";
             // 
-            // toolStripSeparator1
+            // toolStripSeparator3
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(410, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(410, 6);
-            // 
-            // 项目列表ToolStripMenuItem
-            // 
-            this.项目列表ToolStripMenuItem.Name = "项目列表ToolStripMenuItem";
-            this.项目列表ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.M)));
-            this.项目列表ToolStripMenuItem.Size = new System.Drawing.Size(413, 38);
-            this.项目列表ToolStripMenuItem.Text = "项目列表";
-            this.项目列表ToolStripMenuItem.Click += new System.EventHandler(this.项目列表ToolStripMenuItem_Click);
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
-            this.testToolStripMenuItem.Text = "test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(410, 6);
             // 
             // Form1
             // 
@@ -168,7 +175,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "专家抽取系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -196,6 +203,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 项目列表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
