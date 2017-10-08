@@ -58,5 +58,13 @@ namespace expert
             Form1 f = (Form1)this.MdiParent;
             f.xmform.loaddata(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
         }
+
+        private void 抽取项目专家ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count <= 0)
+                return;
+            cqForm cq = new cqForm(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            cq.ShowDialog();
+        }
     }
 }

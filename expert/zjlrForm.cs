@@ -13,6 +13,7 @@ namespace expert
 {
     public partial class zjlrForm : Form
     {
+        bool oread = false;
         public zjlrForm()
         {
             InitializeComponent();
@@ -160,6 +161,25 @@ namespace expert
 
 
             return i;
+        }
+        public bool onlyread
+        {
+            get
+            {
+                return oread;
+            }
+            set
+            {
+                oread = value;
+                if(value)
+                {
+                    button1.Visible = false;
+                }
+                else
+                {
+                    button1.Visible = true;
+                }
+            }
         }
     }
 }

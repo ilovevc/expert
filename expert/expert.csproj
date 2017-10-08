@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cqForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqForm.Designer.cs">
+      <DependentUpon>cqForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="czForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,11 @@
     <Compile Include="quyuform.Designer.cs">
       <DependentUpon>quyuform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="sub.cs" />
     <Compile Include="xmForm2.cs">
       <SubType>Form</SubType>
@@ -128,6 +139,9 @@
     <Compile Include="zjselForm.Designer.cs">
       <DependentUpon>zjselForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="cqForm.resx">
+      <DependentUpon>cqForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="czForm.resx">
       <DependentUpon>czForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,9 +159,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="quyuform.resx">
       <DependentUpon>quyuform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="xmForm2.resx">
       <DependentUpon>xmForm2.cs</DependentUpon>
@@ -195,6 +215,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\a.xls" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

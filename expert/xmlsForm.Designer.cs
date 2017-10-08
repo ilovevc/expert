@@ -43,11 +43,12 @@
             this.lxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除项目ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加排除专家ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.编辑项目ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txiangmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertDataSetxiangmu = new expert.expertDataSetxiangmu();
             this.txiangmuTableAdapter = new expert.expertDataSetxiangmuTableAdapters.TxiangmuTableAdapter();
-            this.添加排除专家ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.编辑项目ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.抽取项目专家ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -62,7 +63,8 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1664, 39);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip1.Size = new System.Drawing.Size(832, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -73,7 +75,7 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Text = "刷新";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // dataGridView1
@@ -94,11 +96,12 @@
             this.dataGridView1.DataSource = this.txiangmuBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 39);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 37;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1664, 854);
+            this.dataGridView1.Size = new System.Drawing.Size(832, 407);
             this.dataGridView1.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
@@ -165,17 +168,32 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.删除项目ToolStripMenuItem,
             this.添加排除专家ToolStripMenuItem,
-            this.编辑项目ToolStripMenuItem});
+            this.编辑项目ToolStripMenuItem,
+            this.抽取项目专家ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(275, 156);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 114);
             // 
             // 删除项目ToolStripMenuItem
             // 
             this.删除项目ToolStripMenuItem.Name = "删除项目ToolStripMenuItem";
             this.删除项目ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.删除项目ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
+            this.删除项目ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.删除项目ToolStripMenuItem.Text = "删除项目";
             this.删除项目ToolStripMenuItem.Click += new System.EventHandler(this.删除项目ToolStripMenuItem_Click);
+            // 
+            // 添加排除专家ToolStripMenuItem
+            // 
+            this.添加排除专家ToolStripMenuItem.Name = "添加排除专家ToolStripMenuItem";
+            this.添加排除专家ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.添加排除专家ToolStripMenuItem.Text = "项目排除专家...";
+            this.添加排除专家ToolStripMenuItem.Click += new System.EventHandler(this.添加排除专家ToolStripMenuItem_Click);
+            // 
+            // 编辑项目ToolStripMenuItem
+            // 
+            this.编辑项目ToolStripMenuItem.Name = "编辑项目ToolStripMenuItem";
+            this.编辑项目ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.编辑项目ToolStripMenuItem.Text = "编辑项目...";
+            this.编辑项目ToolStripMenuItem.Click += new System.EventHandler(this.编辑项目ToolStripMenuItem_Click);
             // 
             // txiangmuBindingSource
             // 
@@ -191,27 +209,21 @@
             // 
             this.txiangmuTableAdapter.ClearBeforeFill = true;
             // 
-            // 添加排除专家ToolStripMenuItem
+            // 抽取项目专家ToolStripMenuItem
             // 
-            this.添加排除专家ToolStripMenuItem.Name = "添加排除专家ToolStripMenuItem";
-            this.添加排除专家ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
-            this.添加排除专家ToolStripMenuItem.Text = "项目排除专家...";
-            this.添加排除专家ToolStripMenuItem.Click += new System.EventHandler(this.添加排除专家ToolStripMenuItem_Click);
-            // 
-            // 编辑项目ToolStripMenuItem
-            // 
-            this.编辑项目ToolStripMenuItem.Name = "编辑项目ToolStripMenuItem";
-            this.编辑项目ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
-            this.编辑项目ToolStripMenuItem.Text = "编辑项目...";
-            this.编辑项目ToolStripMenuItem.Click += new System.EventHandler(this.编辑项目ToolStripMenuItem_Click);
+            this.抽取项目专家ToolStripMenuItem.Name = "抽取项目专家ToolStripMenuItem";
+            this.抽取项目专家ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.抽取项目专家ToolStripMenuItem.Text = "抽取项目专家...";
+            this.抽取项目专家ToolStripMenuItem.Click += new System.EventHandler(this.抽取项目专家ToolStripMenuItem_Click);
             // 
             // xmlsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1664, 893);
+            this.ClientSize = new System.Drawing.Size(832, 446);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "xmlsForm";
             this.ShowIcon = false;
             this.Text = "项目列表";
@@ -247,5 +259,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lxDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem 添加排除专家ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 编辑项目ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 抽取项目专家ToolStripMenuItem;
     }
 }
