@@ -209,7 +209,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.qycomboBox);
             this.Name = "cqForm";
-            this.Text = "cqForm";
+            this.ShowIcon = false;
+            this.Text = "专家抽取";
             this.Load += new System.EventHandler(this.cqForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.slnumericUpDown)).EndInit();
             this.ResumeLayout(false);

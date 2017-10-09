@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Data.OleDb;
 using System.IO;
 using System.Diagnostics;
+using Excel=Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace expert
 {
@@ -210,9 +212,22 @@ namespace expert
             saveFileDialog1.FileName = label5.Text.Substring(5) + "(" + label4.Text.Substring(5) + ")专家抽取表";
             if (saveFileDialog1.ShowDialog()==DialogResult.OK)
             {
-                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write);
+
+                string tmppath = Path.GetTempPath() + DateTime.Now.ToString("yyyyMMddhhmmss") + ".xls";
+
+                FileStream fs = new FileStream(tmppath, FileMode.Create, FileAccess.Write);
                 fs.Write(Properties.Resources.a, 0, Properties.Resources.a.Length);
                 fs.Close();
+
+                Excel.Application app = new Excel.Application();
+                Excel.Workbook workbook = app.Workbooks.Add(tmppath);
+                Excel.Worksheet worksheet = workbook.ActiveSheet as Excel.Worksheet;
+
+                worksheet.Cells[1, 1] = label5.Text.Substring(5)+ "专家抽取表";
+                app.AlertBeforeOverwriting = false;
+                workbook.SaveAs(saveFileDialog1.FileName, Excel.XlFileFormat.xlExcel7, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                app.Quit();
+
                 savezjtoexcel(saveFileDialog1.FileName);
                 Process.Start(saveFileDialog1.FileName);
             }

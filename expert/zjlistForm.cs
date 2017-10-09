@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace expert
 {
@@ -53,11 +55,58 @@ namespace expert
 
         private void toolStripButtonfind_Click(object sender, EventArgs e)
         {
-            czForm formcz = new czForm();
-            if(formcz.ShowDialog ()==DialogResult.OK)
+            /* czForm formcz = new czForm();
+             if(formcz.ShowDialog ()==DialogResult.OK)
+             {
+                 MessageBox.Show("ok");
+             }*/
+
+            if (scrTextBox1.Text == "输入姓名或编号查找")
+                listdata();
+            else
+                listdata(scrTextBox1.Text);
+        }
+
+        private void listdata(string str="")
+        {
+            string sql;
+            if (str == "")
             {
-                MessageBox.Show("ok");
+                sql = "select * from Tzhuanjia";
+
             }
+            else
+            {
+
+                Regex regex = new Regex(@"^[0-9]+$");
+                if (regex.IsMatch(str))
+                {
+                    sql = "select * from Tzhuanjia where id='" + str + "'";
+                }
+                else
+                {
+                    sql = "select * from Tzhuanjia where xingming='" + str + "'";
+                }
+            }
+
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+
+        }
+
+        private void scrTextBox1_Enter(object sender, EventArgs e)
+        {
+            if (scrTextBox1.Text == "输入姓名或编号查找")
+                scrTextBox1.Text = "";
+        }
+
+        private void scrTextBox1_Leave(object sender, EventArgs e)
+        {
+            if (scrTextBox1.Text == "")
+                scrTextBox1.Text = "输入姓名或编号查找";
         }
     }
 }

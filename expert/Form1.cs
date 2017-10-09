@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace expert
 {
@@ -145,15 +147,37 @@ namespace expert
             }
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        private void Form1_Load(object sender, EventArgs e)
         {
-            zjselForm zjsel = new zjselForm();
-            if(zjsel.ShowDialog()==DialogResult.OK)
-            {
-                MessageBox.Show(zjsel.zjid);
-            }
+
         }
 
-       
+        private void 导出专家数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private int zjtoexcel(string filename)
+        {
+            string sql1 = "select * from Tzhuanjia";
+            string sql2 = "insert into [$Sheet1] values(@zjid,@xm,@xb,@nl,@sfz,@dw,@zc,@zw,@sj,@dh,@hy,@zy,@lx,@qy,@bz)";
+            string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            SqlCommand cmd1 = new SqlCommand(sql1, sub.getcon());
+            OleDbCommand cmd2 = new OleDbCommand(sql2, new OleDbConnection(olecon));
+            cmd1.Connection.Open();
+            cmd2.Connection.Open();
+            SqlDataReader read = cmd1.ExecuteReader();
+            while(read.Read())
+            {
+                cmd2.Parameters.Clear();
+                cmd2.Parameters.AddWithValue("zjid", read["id"].ToString());
+
+            }
+
+            cmd1.Connection.Close();
+            cmd2.Connection.Close();
+            return 0;
+        }
     }
 }

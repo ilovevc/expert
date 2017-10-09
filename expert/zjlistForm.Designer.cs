@@ -53,6 +53,8 @@
             this.tzhuanjiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertDataSet = new expert.expertDataSet();
             this.tzhuanjiaTableAdapter = new expert.expertDataSetTableAdapters.TzhuanjiaTableAdapter();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.scrTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tzhuanjiaBindingSource)).BeginInit();
@@ -66,11 +68,12 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonref,
             this.toolStripButtondel,
+            this.toolStripSeparator1,
+            this.scrTextBox1,
             this.toolStripButtonfind});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1790, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(895, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -128,13 +131,12 @@
             this.dataGridView1.DataSource = this.tzhuanjiaBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 39);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1790, 1005);
+            this.dataGridView1.Size = new System.Drawing.Size(895, 483);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -258,14 +260,26 @@
             // 
             this.tzhuanjiaTableAdapter.ClearBeforeFill = true;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // scrTextBox1
+            // 
+            this.scrTextBox1.Name = "scrTextBox1";
+            this.scrTextBox1.Size = new System.Drawing.Size(150, 39);
+            this.scrTextBox1.Text = "输入姓名或编号查找";
+            this.scrTextBox1.Enter += new System.EventHandler(this.scrTextBox1_Enter);
+            this.scrTextBox1.Leave += new System.EventHandler(this.scrTextBox1_Leave);
+            // 
             // zjlistForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1790, 1044);
+            this.ClientSize = new System.Drawing.Size(895, 522);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "zjlistForm";
             this.Text = "专家列表";
             this.Load += new System.EventHandler(this.zjlistForm_Load);
@@ -304,5 +318,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quyuDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton toolStripButtondel;
         private System.Windows.Forms.ToolStripButton toolStripButtonfind;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox scrTextBox1;
     }
 }
