@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xmlsForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.scrTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.scrtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +51,12 @@
             this.txiangmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertDataSetxiangmu = new expert.expertDataSetxiangmu();
             this.txiangmuTableAdapter = new expert.expertDataSetxiangmuTableAdapters.TxiangmuTableAdapter();
-            this.scrTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.scrtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -62,13 +68,19 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
             this.scrTextBox,
-            this.scrtoolStripButton});
+            this.scrtoolStripButton,
+            this.toolStripSeparator1,
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripButton5,
+            this.toolStripButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(832, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(1664, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -81,6 +93,24 @@
             this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton1.Text = "刷新";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // scrTextBox
+            // 
+            this.scrTextBox.Name = "scrTextBox";
+            this.scrTextBox.Size = new System.Drawing.Size(296, 39);
+            this.scrTextBox.Text = "输入编号或关键字查找";
+            this.scrTextBox.Enter += new System.EventHandler(this.scrTextBox_Enter);
+            this.scrTextBox.Leave += new System.EventHandler(this.scrTextBox_Leave);
+            // 
+            // scrtoolStripButton
+            // 
+            this.scrtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.scrtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("scrtoolStripButton.Image")));
+            this.scrtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.scrtoolStripButton.Name = "scrtoolStripButton";
+            this.scrtoolStripButton.Size = new System.Drawing.Size(36, 36);
+            this.scrtoolStripButton.Text = "查找";
+            this.scrtoolStripButton.Click += new System.EventHandler(this.scrtoolStripButton_Click);
             // 
             // dataGridView1
             // 
@@ -100,12 +130,12 @@
             this.dataGridView1.DataSource = this.txiangmuBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 39);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 37;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(832, 407);
+            this.dataGridView1.Size = new System.Drawing.Size(1664, 853);
             this.dataGridView1.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
@@ -175,34 +205,34 @@
             this.编辑项目ToolStripMenuItem,
             this.抽取项目专家ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(275, 148);
             // 
             // 删除项目ToolStripMenuItem
             // 
             this.删除项目ToolStripMenuItem.Name = "删除项目ToolStripMenuItem";
             this.删除项目ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.删除项目ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.删除项目ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.删除项目ToolStripMenuItem.Text = "删除项目";
             this.删除项目ToolStripMenuItem.Click += new System.EventHandler(this.删除项目ToolStripMenuItem_Click);
             // 
             // 添加排除专家ToolStripMenuItem
             // 
             this.添加排除专家ToolStripMenuItem.Name = "添加排除专家ToolStripMenuItem";
-            this.添加排除专家ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.添加排除专家ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.添加排除专家ToolStripMenuItem.Text = "项目排除专家...";
             this.添加排除专家ToolStripMenuItem.Click += new System.EventHandler(this.添加排除专家ToolStripMenuItem_Click);
             // 
             // 编辑项目ToolStripMenuItem
             // 
             this.编辑项目ToolStripMenuItem.Name = "编辑项目ToolStripMenuItem";
-            this.编辑项目ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.编辑项目ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.编辑项目ToolStripMenuItem.Text = "编辑项目...";
             this.编辑项目ToolStripMenuItem.Click += new System.EventHandler(this.编辑项目ToolStripMenuItem_Click);
             // 
             // 抽取项目专家ToolStripMenuItem
             // 
             this.抽取项目专家ToolStripMenuItem.Name = "抽取项目专家ToolStripMenuItem";
-            this.抽取项目专家ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.抽取项目专家ToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.抽取项目专家ToolStripMenuItem.Text = "抽取项目专家...";
             this.抽取项目专家ToolStripMenuItem.Click += new System.EventHandler(this.抽取项目专家ToolStripMenuItem_Click);
             // 
@@ -220,32 +250,69 @@
             // 
             this.txiangmuTableAdapter.ClearBeforeFill = true;
             // 
-            // scrTextBox
+            // toolStripButton2
             // 
-            this.scrTextBox.Name = "scrTextBox";
-            this.scrTextBox.Size = new System.Drawing.Size(150, 39);
-            this.scrTextBox.Text = "输入编号或关键字查找";
-            this.scrTextBox.Enter += new System.EventHandler(this.scrTextBox_Enter);
-            this.scrTextBox.Leave += new System.EventHandler(this.scrTextBox_Leave);
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton2.Text = "编辑项目";
+            this.toolStripButton2.Click += new System.EventHandler(this.编辑项目ToolStripMenuItem_Click);
             // 
-            // scrtoolStripButton
+            // toolStripSeparator1
             // 
-            this.scrtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.scrtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("scrtoolStripButton.Image")));
-            this.scrtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.scrtoolStripButton.Name = "scrtoolStripButton";
-            this.scrtoolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.scrtoolStripButton.Text = "toolStripButton2";
-            this.scrtoolStripButton.Click += new System.EventHandler(this.scrtoolStripButton_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton3.Text = "删除项目";
+            this.toolStripButton3.Click += new System.EventHandler(this.删除项目ToolStripMenuItem_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton4.Text = "添加排除专家";
+            this.toolStripButton4.Click += new System.EventHandler(this.添加排除专家ToolStripMenuItem_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton5.Text = "抽取项目专家";
+            this.toolStripButton5.Click += new System.EventHandler(this.抽取项目专家ToolStripMenuItem_Click);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton6.Text = "添加新项目";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // xmlsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 446);
+            this.ClientSize = new System.Drawing.Size(1664, 892);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "xmlsForm";
             this.ShowIcon = false;
             this.Text = "项目列表";
@@ -284,5 +351,11 @@
         private System.Windows.Forms.ToolStripMenuItem 抽取项目专家ToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox scrTextBox;
         private System.Windows.Forms.ToolStripButton scrtoolStripButton;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
     }
 }

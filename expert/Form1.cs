@@ -154,7 +154,9 @@ namespace expert
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            fxmls = new xmlsForm();
+            fxmls.MdiParent = this;
+            fxmls.Show();
         }
 
         private void 导出专家数据ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -297,6 +299,20 @@ namespace expert
                 flog = new logForm();
                 flog.MdiParent = this;
                 flog.Show();
+            }
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 abf = new AboutBox1();
+            abf.ShowDialog();
+        }
+
+        private void menuStrip1_ItemAdded(object sender, ToolStripItemEventArgs e)
+        {
+            if(e.Item.Text.Length==0)
+            {
+                e.Item.Visible = false;
             }
         }
     }

@@ -24,6 +24,7 @@ namespace expert
             // TODO: 这行代码将数据加载到表“expertDataSetxiangmu.Txiangmu”中。您可以根据需要移动或删除它。
             this.txiangmuTableAdapter.Fill(this.expertDataSetxiangmu.Txiangmu);
             this.WindowState = FormWindowState.Maximized;
+            
 
         }
 
@@ -121,6 +122,12 @@ namespace expert
         {
             if (scrTextBox.Text == "")
                 scrTextBox.Text = "输入编号或关键字查找";
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = this.MdiParent as Form1;
+            f1.xmform.Show();
         }
     }
 }
