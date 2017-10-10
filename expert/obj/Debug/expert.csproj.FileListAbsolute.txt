@@ -55,3 +55,4 @@ C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.xmlsForm.resources
 C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.zjselForm.resources
 C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.cqForm.resources
 C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.Resource.resources
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.logForm.resources

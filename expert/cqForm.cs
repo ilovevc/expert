@@ -82,6 +82,7 @@ namespace expert
                 MessageBox.Show(string.Format("数据库中符合条件专家不足{0}位，已经为您抽取{1}位专家。", slnumericUpDown.Value.ToString(), i));
             }
             loadzj();
+            sub.writelog("抽取项目" + label4.Text.Substring(5) + "专家" + i.ToString() + "位");
         }
         private int cqzj(string qy,string zy,string sl)
         {
@@ -128,7 +129,7 @@ namespace expert
             while (read.Read())
             {
                 ListViewItem item = new ListViewItem(read["zjid"].ToString());
-                item.SubItems.Add(Convert.ToDateTime(read["sj"]).ToString("yyyy/MM/dd hh:mm:ss"));
+                item.SubItems.Add(Convert.ToDateTime(read["sj"]).ToString("yyyy/MM/dd HH:mm:ss"));
                 listView1.Items.Add(item);
             }
             cmd.Connection.Close();
@@ -138,7 +139,7 @@ namespace expert
         {
             if (listView1.SelectedItems.Count <= 0)
                 return;
-
+            string id = listView1.SelectedItems[0].Text;
             string sql = "delete from Txmzj where xmid=@xmid and zjid=@zjid";
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
             cmd.Parameters.AddWithValue("xmid", xmid);
@@ -147,6 +148,7 @@ namespace expert
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
             loadzj();
+            sub.writelog("删除项目" + label4.Text.Substring(5) + "专家" +id );
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
@@ -230,6 +232,8 @@ namespace expert
 
                 savezjtoexcel(saveFileDialog1.FileName);
                 Process.Start(saveFileDialog1.FileName);
+
+                sub.writelog("输出项目" + label4.Text + "专家信息到电子表格");
             }
         }
     }

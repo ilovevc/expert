@@ -63,6 +63,7 @@ namespace expert
 
                 loadzj(zjsel.zjid);
                 dataadd(zjsel.zjid);
+                sub.writelog("添加项目" + label1.Text.Substring(5) + "排除专家，编号" + zjsel.zjid);
             }
         }
         private void loadzj(string id)
@@ -128,8 +129,11 @@ namespace expert
         {
             if (listView1.SelectedItems.Count <= 0)
                 return;
+
+            string tmp = listView1.SelectedItems[0].Text;
             deldata(xmid, listView1.SelectedItems[0].Text);
             loaddata();
+            sub.writelog("删除项目" + label1.Text.Substring(5) + "排除专家，编号" + tmp);
         }
         private int deldata(string xid,string zjid)
         {

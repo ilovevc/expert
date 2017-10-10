@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using System.IO;
+using System.Diagnostics;
 
 namespace expert
 {
@@ -19,6 +21,7 @@ namespace expert
         zjlistForm fzjlist = null;
         xmForm2 fxm = null;
         xmlsForm fxmls = null;
+        logForm flog = null;
         public Form1()
         {
             InitializeComponent();
@@ -156,28 +159,145 @@ namespace expert
 
         private void 导出专家数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if(saveFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create,FileAccess.Write);
+                fs.Write(Properties.Resources.b, 0, Properties.Resources.b.Length);
+                fs.Close();
+
+                zjtoexcel(saveFileDialog1.FileName);
+                Process.Start(saveFileDialog1.FileName);
+
+                sub.writelog("导出专家数据表");
+            }
         }
         private int zjtoexcel(string filename)
         {
             string sql1 = "select * from Tzhuanjia";
-            string sql2 = "insert into [$Sheet1] values(@zjid,@xm,@xb,@nl,@sfz,@dw,@zc,@zw,@sj,@dh,@hy,@zy,@lx,@qy,@bz)";
+            string sql2 = "insert into [Sheet1$] values(@zjid,@xm,@xb,@nl,@sfz,@dw,@zc,@zw,@sj,@dh,@hy,@zy,@lx,@qy,@bz)";
             string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
             SqlCommand cmd1 = new SqlCommand(sql1, sub.getcon());
             OleDbCommand cmd2 = new OleDbCommand(sql2, new OleDbConnection(olecon));
             cmd1.Connection.Open();
             cmd2.Connection.Open();
             SqlDataReader read = cmd1.ExecuteReader();
+            int i = 0;
             while(read.Read())
             {
                 cmd2.Parameters.Clear();
                 cmd2.Parameters.AddWithValue("zjid", read["id"].ToString());
-
+                cmd2.Parameters.AddWithValue("xm", read["xingming"].ToString());
+                cmd2.Parameters.AddWithValue("xb", read["xingbie"].ToString());
+                cmd2.Parameters.AddWithValue("nl", read["nianling"].ToString());
+                cmd2.Parameters.AddWithValue("sfz", read["shenfenzheng"].ToString());
+                cmd2.Parameters.AddWithValue("dw", read["danwei"].ToString());
+                cmd2.Parameters.AddWithValue("zc", read["zhicheng"].ToString());
+                cmd2.Parameters.AddWithValue("zw", read["zhiwu"].ToString());
+                cmd2.Parameters.AddWithValue("sj", read["shouji"].ToString());
+                cmd2.Parameters.AddWithValue("dh", read["dianhua"].ToString());
+                cmd2.Parameters.AddWithValue("hy", read["hangye"].ToString());
+                cmd2.Parameters.AddWithValue("zy", read["zhuanye"].ToString());
+                cmd2.Parameters.AddWithValue("lx", read["leixing"].ToString());
+                cmd2.Parameters.AddWithValue("qy", read["quyu"].ToString());
+                cmd2.Parameters.AddWithValue("bz", read["beizhu"].ToString());
+                cmd2.ExecuteNonQuery();
+                i++;
             }
 
             cmd1.Connection.Close();
             cmd2.Connection.Close();
-            return 0;
+            return i;
+        }
+
+        private void 导入专家数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                int i = exceltozj(openFileDialog1.FileName);
+                if (i > 0)
+                {
+                    MessageBox.Show("导入成功，共导入数据" + i.ToString() + "条。");
+                    sub.writelog("导入专家数据" + i.ToString() + "条。");
+                }
+                    
+                else
+                    MessageBox.Show("导入数据失败，请确认文件格式正确，并有数据存在。");
+            }
+        }
+
+        private int exceltozj(string filename)
+        {
+            string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            string sql1 = "select * from [Sheet1$]";
+            string sql2 = "insert into Tzhuanjia(xingming,xingbie,nianling,shenfenzheng,danwei,zhicheng,zhiwu,shouji,dianhua,hangye,zhuanye,leixing,quyu,beizhu) values(@xm,@xb,@nl,@sfz,@dw,@zc,@zw,@sj,@dh,@hy,@zy,@lx,@qy,@bz)";
+            OleDbCommand cmd1 = new OleDbCommand(sql1, new OleDbConnection(olecon));
+            SqlCommand cmd2 = new SqlCommand(sql2, sub.getcon());
+            int i = 0;
+
+
+
+
+            try
+            {
+
+                cmd1.Connection.Open();
+                cmd2.Connection.Open();
+                OleDbDataReader read = cmd1.ExecuteReader();
+                while (read.Read())
+                {
+                    cmd2.Parameters.Clear();
+
+                    cmd2.Parameters.AddWithValue("xm", read[0].ToString());
+                    cmd2.Parameters.AddWithValue("xb", read[1].ToString());
+                    cmd2.Parameters.AddWithValue("nl", read[2].ToString());
+                    cmd2.Parameters.AddWithValue("sfz", read[3].ToString());
+                    cmd2.Parameters.AddWithValue("dw", read[4].ToString());
+                    cmd2.Parameters.AddWithValue("zc", read[5].ToString());
+                    cmd2.Parameters.AddWithValue("zw", read[6].ToString());
+                    cmd2.Parameters.AddWithValue("sj", read[7].ToString());
+                    cmd2.Parameters.AddWithValue("dh", read[8].ToString());
+                    cmd2.Parameters.AddWithValue("hy", read[9].ToString());
+                    cmd2.Parameters.AddWithValue("zy", read[10].ToString());
+                    cmd2.Parameters.AddWithValue("lx", read[11].ToString());
+                    cmd2.Parameters.AddWithValue("qy", read[12].ToString());
+                    cmd2.Parameters.AddWithValue("bz", read[13].ToString());
+                    cmd2.ExecuteNonQuery();
+                    i++;
+                }
+                cmd1.Connection.Close();
+                cmd2.Connection.Close();
+            }
+            catch
+            {
+                return 0;
+            }
+            return i;
+        }
+
+        private void 生成导入专家模板ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(saveFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write);
+                fs.Write(Properties.Resources.c, 0, Properties.Resources.c.Length);
+                fs.Close();
+                Process.Start(saveFileDialog1.FileName);
+            }
+        }
+
+        private void 查看日志ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (flog != null && !flog.IsDisposed)
+            {
+                flog.WindowState = FormWindowState.Normal;
+                flog.Focus();
+            }
+            else
+            {
+                flog = new logForm();
+                flog.MdiParent = this;
+                flog.Show();
+            }
         }
     }
 }

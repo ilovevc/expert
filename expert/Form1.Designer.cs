@@ -30,6 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出专家数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导入专家数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成导入专家模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.编辑EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.区域信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -38,11 +41,12 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.项目信息录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.项目列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.设置SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolmsg = new System.Windows.Forms.ToolStripStatusLabel();
-            this.导出专家数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +56,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件FToolStripMenuItem,
-            this.编辑EToolStripMenuItem});
+            this.编辑EToolStripMenuItem,
+            this.设置SToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
@@ -63,10 +68,33 @@
             // 文件FToolStripMenuItem
             // 
             this.文件FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.导出专家数据ToolStripMenuItem});
+            this.导出专家数据ToolStripMenuItem,
+            this.导入专家数据ToolStripMenuItem,
+            this.生成导入专家模板ToolStripMenuItem});
             this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
             this.文件FToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
             this.文件FToolStripMenuItem.Text = "文件(&F)";
+            // 
+            // 导出专家数据ToolStripMenuItem
+            // 
+            this.导出专家数据ToolStripMenuItem.Name = "导出专家数据ToolStripMenuItem";
+            this.导出专家数据ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.导出专家数据ToolStripMenuItem.Text = "导出专家数据...";
+            this.导出专家数据ToolStripMenuItem.Click += new System.EventHandler(this.导出专家数据ToolStripMenuItem_Click);
+            // 
+            // 导入专家数据ToolStripMenuItem
+            // 
+            this.导入专家数据ToolStripMenuItem.Name = "导入专家数据ToolStripMenuItem";
+            this.导入专家数据ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.导入专家数据ToolStripMenuItem.Text = "导入专家数据...";
+            this.导入专家数据ToolStripMenuItem.Click += new System.EventHandler(this.导入专家数据ToolStripMenuItem_Click);
+            // 
+            // 生成导入专家模板ToolStripMenuItem
+            // 
+            this.生成导入专家模板ToolStripMenuItem.Name = "生成导入专家模板ToolStripMenuItem";
+            this.生成导入专家模板ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.生成导入专家模板ToolStripMenuItem.Text = "生成导入专家模板...";
+            this.生成导入专家模板ToolStripMenuItem.Click += new System.EventHandler(this.生成导入专家模板ToolStripMenuItem_Click);
             // 
             // 编辑EToolStripMenuItem
             // 
@@ -77,8 +105,7 @@
             this.专家列表ToolStripMenuItem,
             this.toolStripSeparator2,
             this.项目信息录入ToolStripMenuItem,
-            this.项目列表ToolStripMenuItem,
-            this.toolStripSeparator3});
+            this.项目列表ToolStripMenuItem});
             this.编辑EToolStripMenuItem.Name = "编辑EToolStripMenuItem";
             this.编辑EToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
             this.编辑EToolStripMenuItem.Text = "编辑(&E)";
@@ -137,10 +164,20 @@
             this.项目列表ToolStripMenuItem.Text = "项目列表";
             this.项目列表ToolStripMenuItem.Click += new System.EventHandler(this.项目列表ToolStripMenuItem_Click);
             // 
-            // toolStripSeparator3
+            // 设置SToolStripMenuItem
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(224, 6);
+            this.设置SToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查看日志ToolStripMenuItem});
+            this.设置SToolStripMenuItem.Name = "设置SToolStripMenuItem";
+            this.设置SToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
+            this.设置SToolStripMenuItem.Text = "设置(&S)";
+            // 
+            // 查看日志ToolStripMenuItem
+            // 
+            this.查看日志ToolStripMenuItem.Name = "查看日志ToolStripMenuItem";
+            this.查看日志ToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.查看日志ToolStripMenuItem.Text = "查看日志...";
+            this.查看日志ToolStripMenuItem.Click += new System.EventHandler(this.查看日志ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -159,12 +196,15 @@
             this.toolmsg.Size = new System.Drawing.Size(32, 17);
             this.toolmsg.Text = "就绪";
             // 
-            // 导出专家数据ToolStripMenuItem
+            // saveFileDialog1
             // 
-            this.导出专家数据ToolStripMenuItem.Name = "导出专家数据ToolStripMenuItem";
-            this.导出专家数据ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.导出专家数据ToolStripMenuItem.Text = "导出专家数据...";
-            this.导出专家数据ToolStripMenuItem.Click += new System.EventHandler(this.导出专家数据ToolStripMenuItem_Click);
+            this.saveFileDialog1.FileName = "专家信息表";
+            this.saveFileDialog1.Filter = "电子表格|*.xls";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "电子表格|*.xls";
             // 
             // Form1
             // 
@@ -175,7 +215,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Form1";
             this.Text = "专家抽取系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -203,9 +243,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 项目列表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem 导出专家数据ToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem 导入专家数据ToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem 生成导入专家模板ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置SToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看日志ToolStripMenuItem;
     }
 }
 

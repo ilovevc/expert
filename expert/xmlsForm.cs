@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace expert
 {
@@ -21,6 +23,7 @@ namespace expert
         {
             // TODO: 这行代码将数据加载到表“expertDataSetxiangmu.Txiangmu”中。您可以根据需要移动或删除它。
             this.txiangmuTableAdapter.Fill(this.expertDataSetxiangmu.Txiangmu);
+            this.WindowState = FormWindowState.Maximized;
 
         }
 
@@ -36,8 +39,11 @@ namespace expert
 
             if (MessageBox.Show("确实要删除选定项目吗？","提示",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
+
+                string xm = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                 txiangmuTableAdapter.Update(expertDataSetxiangmu.Txiangmu);
+                sub.writelog("删除项目" + xm);
             }
         }
 
@@ -65,6 +71,56 @@ namespace expert
                 return;
             cqForm cq = new cqForm(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             cq.ShowDialog();
+        }
+
+        private void listdata(string str="")
+        {
+            string sql;
+            if (str == "")
+            {
+                sql = "select * from Txiangmu";
+
+            }
+            else
+            {
+
+                Regex regex = new Regex(@"^[0-9]+$");
+                if (regex.IsMatch(str))
+                {
+                    sql = "select * from Txiangmu where id='" + str + "'";
+                }
+                else
+                {
+
+                    sql = "select * from Txiangmu where mc like '%" + str + "%'";
+                }
+            }
+
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void scrtoolStripButton_Click(object sender, EventArgs e)
+        {
+            if (scrTextBox.Text == "输入编号或关键字查找")
+                listdata();
+            else
+                listdata(scrTextBox.Text);
+        }
+
+        private void scrTextBox_Enter(object sender, EventArgs e)
+        {
+            if (scrTextBox.Text == "输入编号或关键字查找")
+                scrTextBox.Text = "";
+        }
+
+        private void scrTextBox_Leave(object sender, EventArgs e)
+        {
+            if (scrTextBox.Text == "")
+                scrTextBox.Text = "输入编号或关键字查找";
         }
     }
 }

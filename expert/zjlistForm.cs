@@ -38,7 +38,8 @@ namespace expert
 
         private void toolStripButtonref_Click(object sender, EventArgs e)
         {
-            tzhuanjiaTableAdapter.Fill(expertDataSet.Tzhuanjia);
+            //tzhuanjiaTableAdapter.Fill(expertDataSet.Tzhuanjia);
+            listdata();
         }
 
         private void toolStripButtondel_Click(object sender, EventArgs e)
@@ -48,8 +49,18 @@ namespace expert
                 return;
             if (MessageBox.Show("确实要删除选中项吗？", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
-            dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-            tzhuanjiaTableAdapter.Update(expertDataSet.Tzhuanjia);
+            //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+
+            string sql = "delete from Tzhuanjia where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            string xm = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            cmd.Parameters.AddWithValue("id", dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            cmd.Connection.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+            listdata();
+            sub.writelog("删除专家" + xm);
+            //tzhuanjiaTableAdapter.Update(expertDataSet.Tzhuanjia);
             //test
         }
 
@@ -85,6 +96,7 @@ namespace expert
                 }
                 else
                 {
+                    
                     sql = "select * from Tzhuanjia where xingming='" + str + "'";
                 }
             }

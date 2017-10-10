@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>expertDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="expertDataSetlog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>expertDataSetlog.xsd</DependentUpon>
+    </Compile>
     <Compile Include="expertDataSetxiangmu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logForm.Designer.cs">
+      <DependentUpon>logForm.cs</DependentUpon>
     </Compile>
     <Compile Include="pczjForm.cs">
       <SubType>Form</SubType>
@@ -153,6 +164,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="logForm.resx">
+      <DependentUpon>logForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pczjForm.resx">
       <DependentUpon>pczjForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +214,17 @@
     <None Include="expertDataSet.xss">
       <DependentUpon>expertDataSet.xsd</DependentUpon>
     </None>
+    <None Include="expertDataSetlog.xsc">
+      <DependentUpon>expertDataSetlog.xsd</DependentUpon>
+    </None>
+    <None Include="expertDataSetlog.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>expertDataSetlog.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="expertDataSetlog.xss">
+      <DependentUpon>expertDataSetlog.xsd</DependentUpon>
+    </None>
     <None Include="expertDataSetxiangmu.xsc">
       <DependentUpon>expertDataSetxiangmu.xsd</DependentUpon>
     </None>
@@ -222,6 +247,7 @@
     </Compile>
     <None Include="Resources\a.xls" />
     <None Include="Resources\b.xls" />
+    <None Include="Resources\c.xls" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

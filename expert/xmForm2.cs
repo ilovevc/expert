@@ -32,10 +32,12 @@ namespace expert
             if (bhtextBox.Text!="")
             {
                 updatedata();
+                sub.writelog("更新项目信息（" + mctextBox.Text + ")");
             }
             else
             {
                 insertdata();
+                sub.writelog("新增项目信息（" + mctextBox.Text + ")");
             }
             mctextBox.Text = bhtextBox.Text = ddtextBox.Text = jgtextBox.Text = lxtextBox.Text = bztextBox.Text = "";
             
