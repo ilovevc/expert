@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace expert
 {
@@ -47,7 +48,8 @@ namespace expert
         }
         private void loadqy()
         {
-            qycomboBox.Items.Clear();
+            //qycomboBox.Items.Clear();
+            qycheckedListBox.Items.Clear();
 
             string sql = "select * from Tdizhi";
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
@@ -55,7 +57,8 @@ namespace expert
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                qycomboBox.Items.Add(reader["dizhi"].ToString());
+                //qycomboBox.Items.Add(reader["dizhi"].ToString());
+                qycheckedListBox.Items.Add(reader["dizhi"].ToString());
             }
             cmd.Connection.Close();
         }
@@ -73,7 +76,7 @@ namespace expert
             cmd.Parameters.AddWithValue("sj", sjdateTimePicker.Value);
             cmd.Parameters.AddWithValue("dd", ddtextBox.Text);
             cmd.Parameters.AddWithValue("zbjg", jgtextBox.Text);
-            cmd.Parameters.AddWithValue("qy", qycomboBox.Text);
+            cmd.Parameters.AddWithValue("qy", getqystr());
             cmd.Parameters.AddWithValue("lx", lxtextBox.Text);
             cmd.Parameters.AddWithValue("bz", bztextBox.Text);
             cmd.Connection.Open();
@@ -91,7 +94,7 @@ namespace expert
             cmd.Parameters.AddWithValue("sj", sjdateTimePicker.Value);
             cmd.Parameters.AddWithValue("dd", ddtextBox.Text);
             cmd.Parameters.AddWithValue("zbjg", jgtextBox.Text);
-            cmd.Parameters.AddWithValue("qy", qycomboBox.Text);
+            cmd.Parameters.AddWithValue("qy", getqystr());
             cmd.Parameters.AddWithValue("lx", lxtextBox.Text);
             cmd.Parameters.AddWithValue("bz", bztextBox.Text);
             cmd.Parameters.AddWithValue("id", bhtextBox.Text);
@@ -116,7 +119,7 @@ namespace expert
                 sjdateTimePicker.Value =Convert.ToDateTime( read["sj"].ToString());
                 ddtextBox.Text = read["dd"].ToString();
                 jgtextBox.Text = read["zbjg"].ToString();
-                qycomboBox.Text = read["qy"].ToString();
+                setqystr( read["qy"].ToString());
                 lxtextBox.Text = read["lx"].ToString();
                 bztextBox.Text = read["bz"].ToString();
             }
@@ -152,6 +155,42 @@ namespace expert
              * 建立项目排除专家窗口 ok
              * 建立抽取专家窗口，将专家抽取操作功能移动到这个窗口
              */
+        }
+
+        private string getqystr()
+        {
+            string str = "";
+            for (int i = 0; i < qycheckedListBox.Items.Count; i++)
+            {
+                if (qycheckedListBox.GetItemChecked(i))
+                {
+                    if (str != "")
+
+                        str += "," + qycheckedListBox.Items[i].ToString();
+                    else
+                        str += qycheckedListBox.Items[i].ToString();
+
+                }
+            }
+            return str;
+        }
+        private void setqystr(string str)
+        {
+            Regex regex = new Regex(@",");
+            string[] s = regex.Split(str);
+            if(s.Length>0)
+            {
+                foreach(string tmp in s)
+                {
+                    for(int i=0;i<qycheckedListBox.Items.Count;i++)
+                    {
+                        if(qycheckedListBox.Items[i].ToString()==tmp)
+                        {
+                            qycheckedListBox.SetItemChecked(i, true);
+                        }
+                    }
+                }
+            }
         }
     }
 }

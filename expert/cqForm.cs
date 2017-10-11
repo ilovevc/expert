@@ -13,6 +13,7 @@ using System.IO;
 using System.Diagnostics;
 using Excel=Microsoft.Office.Interop.Excel;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace expert
 {
@@ -42,8 +43,9 @@ namespace expert
         }
         private void loadqy()
         {
+            
             qycomboBox.Items.Clear();
-
+            /*
             string sql = "select * from Tdizhi";
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
             cmd.Connection.Open();
@@ -53,6 +55,24 @@ namespace expert
                 qycomboBox.Items.Add(reader["dizhi"].ToString());
             }
             cmd.Connection.Close();
+            */
+            string sql = "select * from Txiangmu where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            cmd.Connection.Open();
+            cmd.Parameters.AddWithValue("id", xmid);
+            SqlDataReader read = cmd.ExecuteReader();
+            if (read.Read())
+            {
+                Regex regex = new Regex(",");
+                string[] str = regex.Split(read["qy"].ToString());
+                foreach(string tmp in str)
+                {
+                    qycomboBox.Items.Add(tmp);
+                }
+
+            }
+            cmd.Connection.Close();
+
         }
         private void loadxm(string id)
         {

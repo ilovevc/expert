@@ -60,3 +60,4 @@ C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.cqForm.resources
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.logForm.resources
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.Resource.resources
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.AboutBox1.resources
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.AboutBox1.resources
