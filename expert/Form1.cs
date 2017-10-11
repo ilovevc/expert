@@ -157,6 +157,7 @@ namespace expert
             fxmls = new xmlsForm();
             fxmls.MdiParent = this;
             fxmls.Show();
+            sub.IsReg = sub.IsRegsoft();
         }
 
         private void 导出专家数据ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -314,6 +315,12 @@ namespace expert
             {
                 e.Item.Visible = false;
             }
+        }
+
+        private void 注册ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            regForm regform = new regForm();
+            regform.ShowDialog();
         }
     }
 }

@@ -36,6 +36,7 @@ namespace expert
             loadqy();
             loadxm(xmid);
             loadzj();
+            loadzy();
             if(qycomboBox.Items.Count>0)
             {
                 qycomboBox.SelectedIndex = 0;
@@ -92,7 +93,15 @@ namespace expert
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i=cqzj(qycomboBox.Text, zytextBox.Text, slnumericUpDown.Value.ToString());
+            if(!sub.IsReg)
+            {
+                MessageBox.Show("未注册版本，不能进行专家抽取！");
+                return;
+            }
+
+
+
+            int i=cqzj(qycomboBox.Text, zycomboBox.Text, slnumericUpDown.Value.ToString());
             if(i<=0)
             {
                 MessageBox.Show("未找到符合条件专家！");
@@ -255,6 +264,20 @@ namespace expert
 
                 sub.writelog("输出项目" + label4.Text + "专家信息到电子表格");
             }
+        }
+
+        private void loadzy()
+        {
+            string sql = "select zhuanye from Tzhuanjia group by zhuanye";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            zycomboBox.Items.Clear();
+            cmd.Connection.Open();
+            SqlDataReader read = cmd.ExecuteReader();
+            while(read.Read())
+            {
+                zycomboBox.Items.Add(read["zhuanye"].ToString());
+            }
+            cmd.Connection.Close();
         }
     }
 }
