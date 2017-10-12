@@ -27,9 +27,17 @@ namespace expert
         {
             if (textBoxkey.Text == sub.getKEY())
             {
-                sub.writeregkey(textBoxkey.Text);
-                MessageBox.Show("软件注册成功！请重启软件完成注册。");
-                this.Close();
+                if(sub.writeregkey(textBoxkey.Text))
+                {
+                    MessageBox.Show("软件注册成功！请重启软件完成注册。");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("写入注册信息失败，请使用管理员身份运行本软件，再进行注册。");
+                }
+                    
+                
             }
             else
             {

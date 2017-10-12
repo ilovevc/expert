@@ -66,3 +66,8 @@ C:\Users\redho\Documents\GitHub\expert\expert\bin\Debug\expert.exe.manifest
 C:\Users\redho\Documents\GitHub\expert\expert\bin\Debug\expert.application
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.exe.manifest
 C:\Users\redho\Documents\GitHub\expert\expert\obj\Debug\expert.application
+C:\Users\redho\Source\Repos\expert\expert\bin\Debug\expert.exe.manifest
+C:\Users\redho\Source\Repos\expert\expert\bin\Debug\expert.application
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.regForm.resources
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.exe.manifest
+C:\Users\redho\Source\Repos\expert\expert\obj\Debug\expert.application
