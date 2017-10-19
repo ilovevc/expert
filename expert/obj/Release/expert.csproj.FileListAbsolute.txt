@@ -55,3 +55,4 @@ C:\Users\redho\Source\Repos\expert\expert\obj\Release\expert.exe.manifest
 C:\Users\redho\Source\Repos\expert\expert\obj\Release\expert.application
 C:\Users\redho\Source\Repos\expert\expert\obj\Release\expert.exe
 C:\Users\redho\Source\Repos\expert\expert\obj\Release\expert.pdb
+C:\Users\redho\Documents\GitHub\expert\expert\obj\Release\expert.TrustInfo.xml

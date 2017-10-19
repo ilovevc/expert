@@ -250,7 +250,8 @@ namespace expert
                 FileStream fs = new FileStream(tmppath, FileMode.Create, FileAccess.Write);
                 fs.Write(Properties.Resources.a, 0, Properties.Resources.a.Length);
                 fs.Close();
-
+                try
+                { 
                 Excel.Application app = new Excel.Application();
                 Excel.Workbook workbook = app.Workbooks.Add(tmppath);
                 Excel.Worksheet worksheet = workbook.ActiveSheet as Excel.Worksheet;
@@ -259,7 +260,12 @@ namespace expert
                 app.AlertBeforeOverwriting = false;
                 workbook.SaveAs(saveFileDialog1.FileName, Excel.XlFileFormat.xlExcel7, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
                 app.Quit();
-
+                }
+                catch
+                {
+                    MessageBox.Show("输出到电子表格失败，请确认系统已安装Microsoft Office.");
+                    return;
+                }
                 savezjtoexcel(saveFileDialog1.FileName);
                 Process.Start(saveFileDialog1.FileName);
 
