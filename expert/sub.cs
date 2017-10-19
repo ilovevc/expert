@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Management;
 using System.Security.Cryptography;
+using System.Net.NetworkInformation;
 
 
 namespace expert
@@ -47,12 +48,25 @@ namespace expert
         public static string getcupid()
         {
             string hdid = "";
-            ManagementClass mc = new ManagementClass("Win32_Processor");
-            ManagementObjectCollection moc = mc.GetInstances();
-
-            foreach (ManagementObject m in moc)
+            try
             {
-                hdid += m.Properties["ProcessorID"].Value.ToString();
+
+                ManagementClass mc = new ManagementClass("Win32_Processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+
+                foreach (ManagementObject m in moc)
+                {
+                    hdid += m.Properties["ProcessorID"].Value.ToString();
+
+                }
+                
+               
+
+            }
+            catch
+            {
+                NetworkInterface[] mac = NetworkInterface.GetAllNetworkInterfaces();
+                hdid = mac[0].GetPhysicalAddress().ToString();
 
             }
             hdid = GetMD5(hdid);
@@ -61,15 +75,15 @@ namespace expert
         public static string getKEY()
         {
             string hdid = "";
-            ManagementClass mc = new ManagementClass("Win32_Processor");
+           /* ManagementClass mc = new ManagementClass("Win32_Processor");
             ManagementObjectCollection moc = mc.GetInstances();
 
             foreach (ManagementObject m in moc)
             {
                 hdid += m.Properties["ProcessorID"].Value.ToString();
 
-            }
-            hdid = GetMD5(hdid);
+            }*/
+            hdid = getcupid();
             string tmp = GetMD5(hdid + "zhaomiduo");
             tmp = tmp.Substring(0, 20);
             string key = "";

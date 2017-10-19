@@ -59,9 +59,10 @@ namespace expert
             {
                 if(updatedatedata(textBoxbh.Text)>0)
                 {
-                   textBoxbh.Text= textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text = textBoxzw.Text = textBoxsj.Text = textBoxdh.Text = textBoxhy.Text = textBox1zy.Text = textBoxlx.Text = textBoxbz.Text = "";
                     f1.showmsg("更新专家信息成功");
                     sub.writelog("更新专家数据（" + textBoxbh.Text + ")");
+                    textBoxbh.Text = textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text = textBoxzw.Text = textBoxsj.Text = textBoxdh.Text = textBoxhy.Text = textBox1zy.Text = textBoxlx.Text = textBoxbz.Text = "";
+
                 }
                 else
                 {
@@ -73,10 +74,11 @@ namespace expert
             {
                 if (insertdata()>0)
                 {
-                    textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text=textBoxzw.Text=textBoxsj.Text=textBoxdh.Text=textBoxhy.Text=textBox1zy.Text=textBoxlx.Text=textBoxbz.Text = "";
                 
                     f1.showmsg("新增专家信息成功");
                     sub.writelog("新增专家数据（" + textBoxxm.Text + ")");
+                    textBoxxm.Text = textBoxsfz.Text = textBoxdw.Text = textBoxzc.Text = textBoxzw.Text = textBoxsj.Text = textBoxdh.Text = textBoxhy.Text = textBox1zy.Text = textBoxlx.Text = textBoxbz.Text = "";
+
                 }
             }
             
