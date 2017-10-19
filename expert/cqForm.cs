@@ -195,7 +195,8 @@ namespace expert
         }
         private int savezjtoexcel(string filename)
         {
-            string constr= "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            //string constr= "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 12.0;HDR=yes;IMEX=0';";
             string sql1 = "insert into [Sheet1$] values(@zjid,@xm,@xb,@nl,@dw,@hy,@zc,@zy,@dh,@sj)";
             string sql2 = "select * from Tzhuanjia where id=@zjid";
             int i = 0;

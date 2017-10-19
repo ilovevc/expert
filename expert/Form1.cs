@@ -178,7 +178,8 @@ namespace expert
         {
             string sql1 = "select * from Tzhuanjia";
             string sql2 = "insert into [Sheet1$] values(@zjid,@xm,@xb,@nl,@sfz,@dw,@zc,@zw,@sj,@dh,@hy,@zy,@lx,@qy,@bz)";
-            string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            //string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            string olecon = "Provider=Microsoft.ACE.OLEDB.12.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 12.0;HDR=yes;IMEX=0';";
             SqlCommand cmd1 = new SqlCommand(sql1, sub.getcon());
             OleDbCommand cmd2 = new OleDbCommand(sql2, new OleDbConnection(olecon));
             cmd1.Connection.Open();
@@ -230,7 +231,8 @@ namespace expert
 
         private int exceltozj(string filename)
         {
-            string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            //string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
+            string olecon = "Provider=Microsoft.ACE.OLEDB.12.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 12.0;HDR=yes;IMEX=0';";
             string sql1 = "select * from [Sheet1$]";
             string sql2 = "insert into Tzhuanjia(xingming,xingbie,nianling,shenfenzheng,danwei,zhicheng,zhiwu,shouji,dianhua,hangye,zhuanye,leixing,quyu,beizhu) values(@xm,@xb,@nl,@sfz,@dw,@zc,@zw,@sj,@dh,@hy,@zy,@lx,@qy,@bz)";
             OleDbCommand cmd1 = new OleDbCommand(sql1, new OleDbConnection(olecon));
