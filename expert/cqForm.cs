@@ -58,6 +58,7 @@ namespace expert
             cmd.Connection.Close();
             */
             qycomboBox.Items.Add("全部已选区域");
+            qycomboBox.Items.Add("全部区域");
             string sql = "select * from Txiangmu where id=@id";
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
             cmd.Connection.Open();
@@ -121,13 +122,13 @@ namespace expert
         {
             string sql;
 
-            if(qy!= "全部已选区域")
+            if(qy!= "全部已选区域" && qy!="全部区域")
                 sql = "select top " + sl + " * from Tzhuanjia where quyu=@quyu and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
             else
             {
                 string tmp="";
 
-                if(qycomboBox.Items.Count>1)
+                if(qy=="全部已选区域")
                 {
                     foreach(var t in qycomboBox.Items)
                     {
@@ -203,6 +204,7 @@ namespace expert
                 listView1.Items.Add(item);
             }
             cmd.Connection.Close();
+            label6.Text = "已抽取专家" + listView1.Items.Count.ToString() + "位。";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -238,7 +240,7 @@ namespace expert
         {
             //string constr= "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
             string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 12.0;HDR=yes;IMEX=0';";
-            string sql1 = "insert into [Sheet1$] values(@zjid,@xm,@xb,@nl,@dw,@hy,@zc,@zy,@dh,@sj)";
+            string sql1 = "insert into [Sheet1$] values(@zjid,@xm,@xb,@nl,@dw,@qy,@hy,@zc,@zy,@dh,@sj)";
             string sql2 = "select * from Tzhuanjia where id=@zjid";
             int i = 0;
             OleDbConnection oledbcon = new OleDbConnection(constr);
@@ -261,6 +263,7 @@ namespace expert
                     oledbcmd.Parameters.AddWithValue("xb", read["xingbie"].ToString());
                     oledbcmd.Parameters.AddWithValue("nl", read["nianling"].ToString());
                     oledbcmd.Parameters.AddWithValue("dw", read["danwei"].ToString());
+                    oledbcmd.Parameters.AddWithValue("qy", read["quyu"].ToString());
                     oledbcmd.Parameters.AddWithValue("hy", read["hangye"].ToString());
                     oledbcmd.Parameters.AddWithValue("zc", read["zhicheng"].ToString());
                     oledbcmd.Parameters.AddWithValue("zy", read["zhuanye"].ToString());
