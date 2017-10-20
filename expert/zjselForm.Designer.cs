@@ -40,6 +40,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonok = new System.Windows.Forms.Button();
             this.buttoncancel = new System.Windows.Forms.Button();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,14 +53,15 @@
             this.scrtoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1638, 39);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(819, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // scrTextBox1
             // 
             this.scrTextBox1.Name = "scrTextBox1";
-            this.scrTextBox1.Size = new System.Drawing.Size(300, 39);
+            this.scrTextBox1.Size = new System.Drawing.Size(152, 39);
             this.scrTextBox1.Text = "输入姓名或编号查找";
             this.scrTextBox1.Enter += new System.EventHandler(this.scrTextBox1_Enter);
             this.scrTextBox1.Leave += new System.EventHandler(this.scrTextBox1_Leave);
@@ -82,13 +84,15 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(0, 39);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1638, 742);
+            this.listView1.Size = new System.Drawing.Size(819, 373);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -125,9 +129,10 @@
             // buttonok
             // 
             this.buttonok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonok.Location = new System.Drawing.Point(1291, 838);
+            this.buttonok.Location = new System.Drawing.Point(646, 419);
+            this.buttonok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonok.Name = "buttonok";
-            this.buttonok.Size = new System.Drawing.Size(150, 46);
+            this.buttonok.Size = new System.Drawing.Size(75, 23);
             this.buttonok.TabIndex = 2;
             this.buttonok.Text = "确定";
             this.buttonok.UseVisualStyleBackColor = true;
@@ -136,25 +141,32 @@
             // buttoncancel
             // 
             this.buttoncancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttoncancel.Location = new System.Drawing.Point(1461, 838);
+            this.buttoncancel.Location = new System.Drawing.Point(730, 419);
+            this.buttoncancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttoncancel.Name = "buttoncancel";
-            this.buttoncancel.Size = new System.Drawing.Size(150, 46);
+            this.buttoncancel.Size = new System.Drawing.Size(75, 23);
             this.buttoncancel.TabIndex = 2;
             this.buttoncancel.Text = "取消";
             this.buttoncancel.UseVisualStyleBackColor = true;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "单位";
+            this.columnHeader6.Width = 150;
+            // 
             // zjselForm
             // 
             this.AcceptButton = this.buttonok;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttoncancel;
-            this.ClientSize = new System.Drawing.Size(1638, 896);
+            this.ClientSize = new System.Drawing.Size(819, 448);
             this.Controls.Add(this.buttoncancel);
             this.Controls.Add(this.buttonok);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "zjselForm";
@@ -180,5 +192,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

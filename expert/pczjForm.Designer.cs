@@ -38,23 +38,26 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonadd = new System.Windows.Forms.Button();
             this.buttondel = new System.Windows.Forms.Button();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 24);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "项目编号：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Location = new System.Drawing.Point(6, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 24);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 0;
             this.label2.Text = "项目名称：";
             // 
@@ -68,12 +71,14 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6});
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(12, 99);
+            this.listView1.Location = new System.Drawing.Point(6, 50);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1616, 710);
+            this.listView1.Size = new System.Drawing.Size(810, 357);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -110,9 +115,10 @@
             // buttonadd
             // 
             this.buttonadd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonadd.Location = new System.Drawing.Point(27, 828);
+            this.buttonadd.Location = new System.Drawing.Point(14, 414);
+            this.buttonadd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonadd.Name = "buttonadd";
-            this.buttonadd.Size = new System.Drawing.Size(131, 44);
+            this.buttonadd.Size = new System.Drawing.Size(66, 22);
             this.buttonadd.TabIndex = 2;
             this.buttonadd.Text = "添加";
             this.buttonadd.UseVisualStyleBackColor = true;
@@ -121,24 +127,32 @@
             // buttondel
             // 
             this.buttondel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttondel.Location = new System.Drawing.Point(174, 828);
+            this.buttondel.Location = new System.Drawing.Point(87, 414);
+            this.buttondel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttondel.Name = "buttondel";
-            this.buttondel.Size = new System.Drawing.Size(131, 44);
+            this.buttondel.Size = new System.Drawing.Size(66, 22);
             this.buttondel.TabIndex = 3;
             this.buttondel.Text = "删除";
             this.buttondel.UseVisualStyleBackColor = true;
             this.buttondel.Click += new System.EventHandler(this.buttondel_Click);
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "单位";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 200;
+            // 
             // pczjForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1640, 900);
+            this.ClientSize = new System.Drawing.Size(820, 450);
             this.Controls.Add(this.buttondel);
             this.Controls.Add(this.buttonadd);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "pczjForm";
             this.ShowIcon = false;
             this.Text = "项目排除专家列表";
@@ -160,5 +174,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button buttonadd;
         private System.Windows.Forms.Button buttondel;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

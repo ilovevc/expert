@@ -217,10 +217,11 @@ namespace expert
         {
             if(openFileDialog1.ShowDialog()==DialogResult.OK)
             {
-                int i = exceltozj(openFileDialog1.FileName);
-                if (i > 0)
+                int t = 0;
+                int i = exceltozj(openFileDialog1.FileName,ref t);
+                if (i > 0 || t>0)
                 {
-                    MessageBox.Show("导入成功，共导入数据" + i.ToString() + "条。");
+                    MessageBox.Show("导入成功，共导入数据" + i.ToString() + "条，未导入重复数据"+t.ToString()+"条。");
                     sub.writelog("导入专家数据" + i.ToString() + "条。");
                 }
                     
@@ -229,7 +230,7 @@ namespace expert
             }
         }
 
-        private int exceltozj(string filename)
+        private int exceltozj(string filename,ref int t)
         {
             //string olecon = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 8.0;HDR=yes;IMEX=2';";
             string olecon = "Provider=Microsoft.ACE.OLEDB.12.0;Persist Security Info=False; Data Source='" + filename + "';Extended Properties='Excel 12.0;HDR=yes;IMEX=0';";
@@ -250,6 +251,12 @@ namespace expert
                 OleDbDataReader read = cmd1.ExecuteReader();
                 while (read.Read())
                 {
+                    if (isinzjb(read[7].ToString()))
+                    {
+                        t++;
+                        continue;
+                    }
+                        
                     cmd2.Parameters.Clear();
 
                     cmd2.Parameters.AddWithValue("xm", read[0].ToString());
@@ -277,6 +284,20 @@ namespace expert
                 return 0;
             }
             return i;
+        }
+
+        private bool isinzjb(string sj)
+        {
+            string sql = "select count(*) from Tzhuanjia where shouji=@sj";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            cmd.Parameters.AddWithValue("sj", sj);
+            cmd.Connection.Open();
+            int i = (int)cmd.ExecuteScalar();
+            cmd.Connection.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         private void 生成导入专家模板ToolStripMenuItem_Click(object sender, EventArgs e)

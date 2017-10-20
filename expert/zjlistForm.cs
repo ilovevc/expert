@@ -50,7 +50,7 @@ namespace expert
             if (MessageBox.Show("确实要删除选中项吗？", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
             //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-
+            /*
             string sql = "delete from Tzhuanjia where id=@id";
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
             string xm = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -59,9 +59,33 @@ namespace expert
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
             listdata();
-            sub.writelog("删除专家" + xm);
+            sub.writelog("删除专家" + xm);*/
             //tzhuanjiaTableAdapter.Update(expertDataSet.Tzhuanjia);
             //test
+            foreach(DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                delzj(row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString());
+            }
+            listdata();
+        }
+
+        private bool delzj(string id,string xm)
+        {
+
+            string sql = "delete from Tzhuanjia where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Connection.Open();
+            int i=cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+            
+            sub.writelog("删除专家" + xm);
+
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         private void toolStripButtonfind_Click(object sender, EventArgs e)

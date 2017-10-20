@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="expert.exe" size="519648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="expert.exe" size="521696">
       <assemblyIdentity name="expert" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>v76FgQEgQ4+4BwNC7mNm97qFcOOxo+C6haERsBQU/S8=</dsig:DigestValue>
+        <dsig:DigestValue>naNVdUs2Qxzn5EvuyCawdofhlnHmCSWJcQTBl6KZ/Wg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

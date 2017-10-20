@@ -57,6 +57,7 @@ namespace expert
             }
             cmd.Connection.Close();
             */
+            qycomboBox.Items.Add("全部已选区域");
             string sql = "select * from Txiangmu where id=@id";
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
             cmd.Connection.Open();
@@ -99,10 +100,13 @@ namespace expert
                 return;
             }
 
+            int i = 0;
+            
+            i=cqzj(qycomboBox.Text, zycomboBox.Text, slnumericUpDown.Value.ToString());
+            
 
 
-            int i=cqzj(qycomboBox.Text, zycomboBox.Text, slnumericUpDown.Value.ToString());
-            if(i<=0)
+            if (i<=0)
             {
                 MessageBox.Show("未找到符合条件专家！");
             }
@@ -115,8 +119,45 @@ namespace expert
         }
         private int cqzj(string qy,string zy,string sl)
         {
-            string sql = "select top " + sl + " * from Tzhuanjia where quyu=@quyu and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
-            
+            string sql;
+
+            if(qy!= "全部已选区域")
+                sql = "select top " + sl + " * from Tzhuanjia where quyu=@quyu and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+            else
+            {
+                string tmp="";
+
+                if(qycomboBox.Items.Count>1)
+                {
+                    foreach(var t in qycomboBox.Items)
+                    {
+                        if(t.ToString()!= "全部已选区域")
+                        {
+                            if(tmp.Length<=0)
+                            {
+                                tmp="quyu in ('"+t.ToString()+"'";
+                            }
+                            else
+                            {
+                                tmp += ",'" + t.ToString()+"'";
+                            }
+                        }
+                    }
+                    tmp += ")";
+                    sql = "select top " + sl + " * from Tzhuanjia where " + tmp + " and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+                }
+                else
+                {
+                    sql = "select top " + sl + " * from Tzhuanjia where zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+                }
+
+               
+                
+                
+            }
+
+
+
             SqlCommand cmd = new SqlCommand(sql, sub.getcon());
             cmd.Parameters.AddWithValue("quyu", qy);
             cmd.Parameters.AddWithValue("zhuanye", zy);

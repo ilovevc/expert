@@ -48,10 +48,10 @@ namespace expert
             Form1 f1 = (Form1)this.ParentForm;
 
 
-            if (textBoxxm.Text.Trim()==string.Empty)
+            if (textBoxxm.Text.Trim()==string.Empty || textBoxsj.Text.Trim()==string.Empty)
             {
-                f1.showmsg("姓名不能为空");
-                MessageBox.Show("姓名不能为空");
+                f1.showmsg("姓名或移动电话不能为空");
+                MessageBox.Show("姓名或移动电话不能为空");
                 return;
             }
 
@@ -72,6 +72,12 @@ namespace expert
             }
             else
             {
+                if(isinzjb(textBoxsj.Text))
+                {
+                    MessageBox.Show("专家信息已经在数据库中存在，请勿重复添加。");
+                    return;
+                }
+
                 if (insertdata()>0)
                 {
                 
@@ -84,6 +90,19 @@ namespace expert
             
         }
 
+        private bool isinzjb(string sj)
+        {
+            string sql = "select count(*) from Tzhuanjia where shouji=@sj";
+            SqlCommand cmd = new SqlCommand(sql, sub.getcon());
+            cmd.Parameters.AddWithValue("sj", sj);
+            cmd.Connection.Open();
+            int i = (int)cmd.ExecuteScalar();
+            cmd.Connection.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
         private int insertdata()
         {
             string sql = "insert into Tzhuanjia(xingming,xingbie,nianling,shenfenzheng,danwei,zhicheng,zhiwu,shouji,dianhua,hangye,zhuanye,leixing,quyu,beizhu) values(@xingming,@xingbie,@nianling,@shenfenzheng,@danwei,@zhicheng,@zhiwu,@shouji,@dianhua,@hangye,@zhuanye,@leixing,@quyu,@beizhu)";

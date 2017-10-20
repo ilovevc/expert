@@ -80,6 +80,7 @@ namespace expert
                 item.SubItems.Add(read["quyu"].ToString());
                 item.SubItems.Add(read["hangye"].ToString());
                 item.SubItems.Add(read["zhuanye"].ToString());
+                item.SubItems.Add(read["danwei"].ToString());
                 listView1.Items.Add(item);
             }
             cmd.Connection.Close();
