@@ -123,7 +123,15 @@ namespace expert
             string sql;
 
             if(qy!= "全部已选区域" && qy!="全部区域")
-                sql = "select top " + sl + " * from Tzhuanjia where quyu=@quyu and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+            {
+
+                if(zy!="全部专业")
+                    sql = "select top " + sl + " * from Tzhuanjia where quyu=@quyu and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+                else
+                    sql = "select top " + sl + " * from Tzhuanjia where quyu=@quyu and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+
+
+            }
             else
             {
                 string tmp="";
@@ -145,16 +153,27 @@ namespace expert
                         }
                     }
                     tmp += ")";
-                    sql = "select top " + sl + " * from Tzhuanjia where " + tmp + " and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+
+                    if (zy != "全部专业")
+                        sql = "select top " + sl + " * from Tzhuanjia where " + tmp + " and zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+                    else
+                        sql = "select top " + sl + " * from Tzhuanjia where " + tmp + " and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+
+
                 }
                 else
                 {
-                    sql = "select top " + sl + " * from Tzhuanjia where zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+
+                    if(zy!="全部专业")
+                        sql = "select top " + sl + " * from Tzhuanjia where zhuanye=@zhuanye and id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+                    else
+                        sql = "select top " + sl + " * from Tzhuanjia where id not in (select zjid from Tpczj where xmid=@xmid) and id not in (select zjid from Txmzj where xmid=@xmid) order by newid()";
+
                 }
 
-               
-                
-                
+
+
+
             }
 
 
@@ -329,6 +348,8 @@ namespace expert
                 zycomboBox.Items.Add(read["zhuanye"].ToString());
             }
             cmd.Connection.Close();
+            zycomboBox.Items.Add("全部专业");
+            zycomboBox.SelectedIndex = zycomboBox.Items.Count - 1;
         }
     }
 }
